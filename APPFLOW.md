@@ -49,12 +49,12 @@ graph TD
 ### Bước 1 & 2: Giai đoạn Nhận thức (Perception & Ingestion)
 - Trình duyệt Playwright lướt qua một bài viết trên X (Twitter). Hệ thống Anti-detect Stealth sẽ ẩn mọi cờ tự động hóa (Automation flags).
 - Server đóng gói bài viết thành một JSON payload chứa: `text_content`, `author_handle`, `post_timestamp`, và một `screenshot_base64` (nếu cần).
-- Dữ liệu được đẩy đi qua cổng HTTP mã hóa. Vì Host mở kết nối bằng header `text/event-stream`, dữ liệu được truyền tải theo dạng các chunk nhỏ liên tục, giúp tiết kiệm bộ đệm RAM của chip M5.
+- Dữ liệu được đẩy đi qua cổng HTTP mã hóa. Vì Host mở kết nối bằng header `text/event-stream`, dữ liệu được truyền tải theo dạng các chunk nhỏ liên tục, giúp tiết kiệm bộ đệm RAM của chip M4/M5.
 
 ### Bước 3: Giai đoạn Suy luận và Tư duy cục bộ (Reasoning Block)
-- Bộ não AI tải dữ liệu vào vùng đệm RAM Thống nhất của chip M5. 
+- Bộ não AI tải dữ liệu vào vùng đệm RAM Thống nhất của chip M4/M5. 
 - Mô hình chạy chuỗi mã lệnh tư duy đặc thù. Token `<|think|>` bắt đầu mở ra, LLM tự vấn cô lập:
-  * *"Bài viết của @tech_insider nói về hiệu năng chip M5. Ngữ cảnh tích cực. Mình cần đưa ra bình luận mang tính bổ sung kiến thức chuyên sâu để kéo follower."*
+  * *"Bài viết của @tech_insider nói về hiệu năng chip M4/M5. Ngữ cảnh tích cực. Mình cần đưa ra bình luận mang tính bổ sung kiến thức chuyên sâu để kéo follower."*
 - Sau khi đóng block `</|think|>`, mô hình chuyển sang trạng thái sinh cấu trúc đầu ra (Structured Output). Nó ép định dạng đầu ra thành một JSON Schema sạch sẽ, không chứa các ký tự thừa text thuần túy.
 
 ### Bước 4 & 5: Giai đoạn Điều khiển và Thực thi (Command & Control)
@@ -72,4 +72,4 @@ graph TD
 ### Bước 7 & 8: Hoàn tất chu kỳ và Viễn trắc (Telemetry & Telemetry Updates)
 - Sau khi bấm nút Đăng thành công, Playwright đợi phần tử UI hiển thị trạng thái "Đã gửi".
 - Server stream một Event thành công chứa dữ liệu: `{"status": "success", "platform": "X", "action": "comment", "tokens_used": 142}` về lại Host.
-- Giao diện SwiftUI của App Host nhận tín hiệu, ngay lập tức cập nhật biểu đồ thống kê KPI tương tác trong ngày, giải phóng bộ nhớ cache cũ, đưa GPU M5 về trạng thái tiết kiệm điện năng để chuẩn bị cho vòng lặp lướt feed tiếp theo.
+- Giao diện SwiftUI của App Host nhận tín hiệu, ngay lập tức cập nhật biểu đồ thống kê KPI tương tác trong ngày, giải phóng bộ nhớ cache cũ, đưa GPU M4/M5 về trạng thái tiết kiệm điện năng để chuẩn bị cho vòng lặp lướt feed tiếp theo.

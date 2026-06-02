@@ -1,6 +1,6 @@
 # ARCHITECTURE.md - Kiến trúc Kỹ thuật Hệ thống
 
-Tài liệu này đặc tả chi tiết kiến trúc phần mềm, cấu trúc liên kết và giải pháp công nghệ được áp dụng cho hệ thống AI Agent **"Chim Lợn"** chạy trên chip Apple M5.
+Tài liệu này đặc tả chi tiết kiến trúc phần mềm, cấu trúc liên kết và giải pháp công nghệ được áp dụng cho hệ thống AI Agent **"Chim Lợn"** chạy trên chip Apple M4 & M5.
 
 ## 1. Sơ đồ Kiến trúc Tổng quan (Decoupled Architecture)
 
@@ -62,12 +62,12 @@ Mọi yêu cầu giao tiếp giữa Host và Server đều đi qua một endpoin
    - **Cơ chế:** Kết nối giữ ở trạng thái Mở (Long-lived connection). Server liên tục stream các sự kiện dạng Server-Sent Events (SSE) về cho Host. 
    - **Quản lý Phiên:** Server cấp một `Mcp-Session-Id` duy nhất trong header phản hồi đầu tiên. Host sử dụng ID này cho tất cả các request POST tiếp theo để đảm bảo tương tác trên cùng một phiên trình duyệt.
 
-## 3. Chiến lược Tối ưu hóa trên Phần cứng Apple M5
+## 3. Chiến lược Tối ưu hóa trên Phần cứng Apple M4 & M5
 
-Kiến trúc chip M5 tích hợp cấu trúc bộ nhớ thống nhất siêu băng thông kết hợp lõi Neural Accelerator trong GPU và Apple Neural Engine (ANE) nâng cấp. Hệ thống khai thác triệt để phần cứng này qua cơ chế chuyển đổi linh hoạt:
+Kiến trúc chip M4 và M5 đều hỗ trợ cấu trúc bộ nhớ thống nhất siêu băng thông cùng lõi Neural Accelerator và bộ tăng tốc thần kinh Apple Neural Engine (ANE) nâng cấp. Đặc biệt, ANE của cả hai thế hệ chip đều hỗ trợ tính toán độ chính xác số nguyên 4-bit (**native INT4 precision**) ở cấp độ phần cứng. Hệ thống khai thác triệt để các đặc điểm này qua cơ chế chuyển đổi linh hoạt:
 
-- **MLX Engine (GPU-Centric Mode):** Kích hoạt khi Agent cần suy luận phức tạp bằng hình ảnh (Multimodal Vision) hoặc sinh chuỗi bình luận dài với tốc độ cực cao. MLX tương tác trực tiếp với Metal API, huy động cụm xử lý ma trận của GPU M5 để đạt hiệu năng tối đa.
-- **CoreML Engine (ANE Hybrid Mode):** Kích hoạt khi Agent chạy ở chế độ nền giám sát thông báo (Background Monitoring Mode). Mô hình được biên dịch qua CoreML để phân phối tác vụ xuống ANE và CPU. GPU được đưa vào trạng thái ngủ giúp máy không bị nóng, duy trì thời lượng pin cả ngày cho MacBook M5.
+- **MLX Engine (GPU-Centric Mode):** Kích hoạt khi Agent cần suy luận phức tạp bằng hình ảnh (Multimodal Vision) hoặc sinh chuỗi bình luận dài với tốc độ cực cao. MLX tương tác trực tiếp với Metal API, huy động cụm xử lý ma trận của GPU M4/M5 để đạt hiệu năng tối đa.
+- **CoreML Engine (ANE Hybrid Mode):** Kích hoạt khi Agent chạy ở chế độ nền giám sát thông báo (Background Monitoring Mode). Mô hình được lượng tử hóa về định dạng INT4 cực nhẹ và chạy trực tiếp trên ANE qua CoreML. GPU được đưa vào trạng thái ngủ giúp máy không bị nóng, duy trì thời lượng pin cả ngày cho MacBook M4/M5.
 
 ## 4. Bảo mật và Cô lập Tiến trình (Security & Process Isolation)
 
