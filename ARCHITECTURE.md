@@ -1,6 +1,6 @@
 # ARCHITECTURE.md - Kiến trúc Kỹ thuật Hệ thống
 
-Tài liệu này đặc tả chi tiết kiến trúc phần mềm, cấu trúc liên kết và giải pháp công nghệ được áp dụng cho hệ thống **AI Social Agent** chạy trên chip Apple M5.
+Tài liệu này đặc tả chi tiết kiến trúc phần mềm, cấu trúc liên kết và giải pháp công nghệ được áp dụng cho hệ thống AI Agent **"Chim Lợn"** chạy trên chip Apple M5.
 
 ## 1. Sơ đồ Kiến trúc Tổng quan (Decoupled Architecture)
 

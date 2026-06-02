@@ -1,6 +1,6 @@
-# AI Social Agent (Apple M5 Optimized)
+# AI Agent "Chim Lợn" (Apple M5 Optimized)
 
-Hệ thống Trợ lý AI tự động hóa tương tác mạng xã hội (Facebook, X, LinkedIn) chạy hoàn toàn cục bộ (Local) trên kiến trúc chip Apple Silicon M5. Dự án áp dụng thiết kế hệ thống hiện đại, tách biệt "Bộ não AI" và "Cánh tay thực thi Trình duyệt" thông qua giao thức **Model Context Protocol (MCP)** và truyền tải bằng **Streamable HTTP**.
+Hệ thống Trợ lý AI "Chim Lợn" tự động hóa tương tác mạng xã hội (Facebook, X, LinkedIn) chạy hoàn toàn cục bộ (Local) trên kiến trúc chip Apple Silicon M5. Dự án áp dụng thiết kế hệ thống hiện đại, tách biệt "Bộ não AI" và "Cánh tay thực thi Trình duyệt" thông qua giao thức **Model Context Protocol (MCP)** và truyền tải bằng **Streamable HTTP**.
 
 ## 🚀 Tính năng cốt lõi
 - **Suy luận Đa phương thức Cục bộ:** Sử dụng mô hình tư duy thế hệ mới Gemma 4 E2B tối ưu trên phần cứng M5 qua MLX và CoreML.

@@ -1,6 +1,6 @@
 # APPFLOW.md - Luồng Hoạt động Ứng dụng Chi tiết
 
-Tài liệu này mô tả chi tiết quy trình xử lý dữ liệu theo thời gian thực (Step-by-Step Data Flow) bên trong hệ thống AI Social Agent từ lúc bắt đầu quét tin đến khi thực thi tương tác hoàn tất.
+Tài liệu này mô tả chi tiết quy trình xử lý dữ liệu theo thời gian thực (Step-by-Step Data Flow) bên trong hệ thống AI Agent "Chim Lợn" từ lúc bắt đầu quét tin đến khi thực thi tương tác hoàn tất.
 
 ## 1. Sơ đồ Tuần tự Chi tiết (Sequence Diagram)
 

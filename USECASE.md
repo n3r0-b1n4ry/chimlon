@@ -1,6 +1,6 @@
 # USECASE.md - Đặc tả Kịch bản Sử dụng (Use Cases)
 
-Tài liệu này định nghĩa các kịch bản nghiệp vụ chính mà hệ thống **AI Social Agent** thực hiện trên môi trường thực tế.
+Tài liệu này định nghĩa các kịch bản nghiệp vụ chính mà hệ thống AI Agent **"Chim Lợn"** thực hiện trên môi trường thực tế.
 
 ---
 
